@@ -1,4 +1,4 @@
-Code for the "RAF loop" timing method from the paper "[Precise display time measurement in JavaScript for web-based experiments](https://osf.io/wyebt/)".
+Code for the "RAF loop" timing method from the paper "[Precise display time measurement in JavaScript for web-based experiments](https://psyarxiv.com/jqk8m/)".
 
 The contents of the dt.js can be placed anywhere in a JS code or simply the dt.js can be loaded. In either case, the `DT` object can then be called to use the included functions. In particular, the RAF loop can be started using `DT.loopOn()`, and stopped using `DT.loopOff()`.
 

@@ -22,3 +22,11 @@ DT.preload(allimages)
 All files (for each "release") in this repository are permanently stored at https://doi.org/10.5281/zenodo.5912068
 
 [![DOI](https://zenodo.org/badge/422760000.svg)](https://zenodo.org/badge/latestdoi/422760000)
+
+---
+
+The contents of this repository are licensed under [CC-BY 4.0 International](https://github.com/gasparl/dtjs/blob/master/LICENSE.md).(In essence, you can use all material for any purpose as long as you give credit to the original authors in a reasonable manner, e.g. cite it in case of a publication; for details, see the included [LICENSE file](https://github.com/gasparl/dtjs/blob/master/LICENSE.md).)
+
+An appropriate reference for citation is:
+
+Lukács, G., & Gartus, A. (2022). _Precise display time measurement in JavaScript for web-based experiments._ https://psyarxiv.com/jqk8m/

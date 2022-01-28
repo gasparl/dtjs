@@ -15,3 +15,10 @@ DT.preload(allimages)
         console.error('Failed', err);
     });
 ```
+
+---
+
+
+All files (for each "release") in this repository are permanently stored at https://doi.org/10.5281/zenodo.5912068
+
+[![DOI](https://zenodo.org/badge/422760000.svg)](https://zenodo.org/badge/latestdoi/422760000)

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-Of course, in a real experiment, there should some additional check to only listen to and record keypresses when it's expected, i.e., during the task, etc. For this, one could for example use a dedicated `listener` variable or such, which can be set to `true` or `false`, depending on whether the key should be listened to at any given moment. (For example, set `listener = true` following the display of a stimulus, and set `listener = false` after the response is given or the response time limit is exceeded.) Then, the full key check above could be something like "`if (listener == true && (e.key == 'k' || e.key == 'l')) { ... }`".
+Of course, in a real experiment, there should be some additional check to only listen to and record keypresses when it's expected, i.e., during the task, etc. For this, one could for example use a dedicated `listener` variable or such, which can be set to `true` or `false`, depending on whether the key should be listened to at any given moment. (For example, set `listener = true` following the display of a stimulus, and set `listener = false` after the response is given or the response time limit is exceeded.) Then, the full key check above could be something like "`if (listener == true && (e.key == 'k' || e.key == 'l')) { ... }`".
 
 ---
 

@@ -33,7 +33,7 @@ requestAnimationFrame(function(time_stamp) {
 
 The RAF loop (which is going on independently in the background) should improve the precision of the timing in this RAF call.
 
-Afterwards, you can detect a keypress change as, for example, `key_time = DT.now()`. Then you can calculate the response time as `resp_time = key_time - time_stamp`.
+Afterwards, you can detect a keypress change as, for example, `key_time = DT.now()`. Then you can calculate the response time as `resp_time = key_time - disp_time`.
 
 Below is an example to how to record keypresses.
 
@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // now check if it's the key we want, for example, here, "k" or "l"
         if (e.key == 'k' || e.key == 'l') {
-            let resp_time = key_time - time_stamp;
+            let resp_time = key_time - disp_time;
             // now the response time can be stored, etc.
         }
     });
 });
 ```
 
-(Of course, in a real experiment, there should some additional check to only listen to and record keypresses when it's expected, i.e., during the task, etc. For this, one could for example use a dedicated `listener` variable or such, which can be set to `true` or `false`, depending on whether the key should be listened to at any given moment. Then, the full key check above could be something like "`if (listener == true && (e.key == 'k' || e.key == 'l')) { ... }`".)
+Of course, in a real experiment, there should some additional check to only listen to and record keypresses when it's expected, i.e., during the task, etc. For this, one could for example use a dedicated `listener` variable or such, which can be set to `true` or `false`, depending on whether the key should be listened to at any given moment. (For example, set `listener = true` following the display of a stimulus, and set `listener = false` after the response is given or the response time limit is exceeded.) Then, the full key check above could be something like "`if (listener == true && (e.key == 'k' || e.key == 'l')) { ... }`".
 
 ---
 

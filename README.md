@@ -15,6 +15,48 @@ DT.preload(allimages)
         console.error('Failed', err);
     });
 ```
+---
+
+Below is an example of how you may use the "RAF loop" method to display a stimulus and record the corresponding display change. First, make sure that the looping has been started (via `DT.loopOn()`) well in advance (e.g., at least 50 ms beforehand). (You can also just quite simply start the looping as soon as the experiment web page is loaded, and just leave it on.) Afterwards, when you want to make a display change and time it precisely, you can do it in a new `requestAnimationFrame` callback as follows.
+
+```javascript
+requestAnimationFrame(function(time_stamp) {
+    // effect the display change
+    // (here it's a plain text change, but it could be image display or whatever else)
+    document.getElementById('stim_id').textContent = 'SOME NEW TEXT';
+
+    // now store the RAF time stamp
+    disp_time = time_stamp;
+    // the time of the display change is now stored in "disp_time"
+});
+```
+
+The RAF loop (which is going on independently in the background) should improve the precision of the timing in this RAF call.
+
+Afterwards, you can detect a keypress change as, for example, `key_time = DT.now()`. Then you can calculate the response time as `resp_time = key_time - time_stamp`.
+
+Below is an example to how to record keypresses.
+
+```javascript
+// first, wait for the page to load (via "DOMContentLoaded")
+document.addEventListener('DOMContentLoaded', function() {
+    // then set up a listener to (the relevant) keypresses
+    // (note: normally you want 'keydown', but you can use 'keyup' too)
+    document.body.addEventListener('keydown', function(e) {
+        // measure keydown time immediately
+        // (if it's not the correct key, it will simply not be used)
+        let key_time = DT.now();
+
+        // now check if it's the key we want, for example, here, "k" or "l"
+        if (e.key == 'k' || e.key == 'l') {
+            let resp_time = key_time - time_stamp;
+            // now the response time can be stored, etc.
+        }
+    });
+});
+```
+
+(Of course, in a real experiment, there should some additional check to only listen to and record keypresses when it's expected, i.e., during the task, etc. For this, one could for example use a dedicated `listener` variable or such, which can be set to `true` or `false`, depending on whether the key should be listened to at any given moment. Then, the full key check above could be something like "`if (listener == true && (e.key == 'k' || e.key == 'l')) { ... }`".)
 
 ---
 

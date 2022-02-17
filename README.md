@@ -35,7 +35,7 @@ The RAF loop (which is going on independently in the background) should improve 
 
 Afterwards, you can detect a keypress change as, for example, `key_time = DT.now()`. Then you can calculate the response time as `resp_time = key_time - disp_time`.
 
-Below is an example to how to record keypresses.
+Below is an example of how to record keypresses.
 
 ```javascript
 // first, wait for the page to load (via "DOMContentLoaded")

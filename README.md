@@ -20,6 +20,8 @@ DT.preload(allimages)
 Below is an example of how you may use the "RAF loop" method to display a stimulus and record the corresponding display change. First, make sure that the looping has been started (via `DT.loopOn()`) well in advance (e.g., at least 50 ms beforehand). (You can also just quite simply start the looping as soon as the experiment web page is loaded, and just leave it on.) Afterwards, when you want to make a display change and time it precisely, you can do it in a new `requestAnimationFrame` callback as follows.
 
 ```javascript
+let disp_time; // set up global variable for storing display times
+
 requestAnimationFrame(function(time_stamp) {
     // effect the display change
     // (here it's a plain text change, but it could be image display or whatever else)
@@ -38,6 +40,8 @@ Afterwards, you can detect a keypress change as, for example, `key_time = DT.now
 Below is an example of how to record keypresses.
 
 ```javascript
+let resp_time; // set up global variable for storing response times
+
 // first, wait for the page to load (via "DOMContentLoaded")
 document.addEventListener('DOMContentLoaded', function() {
     // then set up a listener to (the relevant) keypresses
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // now check if it's the key we want, for example, here, "k" or "l"
         if (e.key == 'k' || e.key == 'l') {
-            let resp_time = key_time - disp_time;
+            resp_time = key_time - disp_time;
             // now the response time can be stored, etc.
         }
     });
